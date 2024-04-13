@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Store</title>
+</head>
+<body>
+<a href="/home">Home</a> &ensp;
+<a href="/cart">View Cart</a> &ensp;
+<a href="/">Sign Out</a>
+<h1>Record Store</h1>
+<h3>Name: <span th:text="${record.name}"></span></h3>
+<h3>Artist: <span th:text="${record.artist}"></span></h3>
+<h3>Price: $<span th:text="${record.price}"></span></h3>
+<form method="post" th:action="@{|/records/${record.idRecord}|}">
+    <label>Quantity: <input type="number" name="amount" value="0" min = "1" max = "10"></label><br/><br/>
+    <input type="Submit" value="Add to cart">
+</form>
+<p><span th:text="${confirmation}"></span></p>
+
+
+</body>
+</html>

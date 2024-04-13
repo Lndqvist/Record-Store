@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add product</title>
+</head>
+<body>
+<h1>Record Store</h1>
+<h3>Add record</h3>
+<form method="post" action="/add-record">
+    <input type="text" name="name" placeholder="Name"> <br/><br/>
+    <input type="text" name="artist" placeholder="Artist"><br/><br/>
+    <input type="number" name="price" placeholder="Price ($)" min = "1"><br/><br/>
+    <label>Category:</label>
+    <select name = "category">
+        <option th:each="c : ${categories}" th:value="${c.name}" th:text="${c.name}" />
+    </select><br/><br/>
+    <input type="Submit" value="Add">
+</form>
+<p><span th:text="${message}"></span></p>
+</body>
+</html>

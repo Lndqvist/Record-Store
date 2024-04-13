@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Store</title>
+</head>
+<body>
+<a href="/home">Home</a> &ensp;
+<a href="/cart">View Cart</a> &ensp;
+<a href="/">Sign Out</a>
+<h1>Record Store</h1>
+<h2>Category: <span th:text="${category}"></span></h2>
+    <table width="300" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Price ($)</th>
+        </tr>
+        <tr th:each="r: ${records}">
+            <td th:text="${r.name}"></td>
+            <td th:text="${r.artist}"></td>
+            <td th:text="${r.price}"></td>
+            <td><button><a th:href="@{|/records/${r.idRecord}|}">View</a></button></td>
+        </tr>
+    </table>
+</body>
+</html>

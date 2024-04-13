@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Store</title>
+</head>
+<body>
+<a href="/cart">View Cart</a> &ensp;
+<a href="/">Sign Out</a> &ensp;
+<h1>Record Store</h1>
+<form method="post" action="/search">
+    <input type="text" name="search" placeholder="Enter record name or artist">
+    <input type="Submit" value="Search">
+</form>
+<h2>Categories</h2>
+<ul th:each="c: ${category}">
+    <li>
+        <a th:href="@{|/category/${c.name}|}">
+            <span th:text="${c.name}"></span>
+        </a>
+    </li>
+</ul>
+<h2>All records</h2>
+<table width="300" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Artist</th>
+        <th>Price ($)</th>
+    </tr>
+    <tr th:each="r: ${records}">
+        <td th:text="${r.name}"></td>
+        <td th:text="${r.artist}"></td>
+        <td th:text="${r.price}"></td>
+        <td><button><a th:href="@{|/records/${r.idRecord}|}">View</a></button></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<a href="/home">Home</a> &ensp;
+<a href="/">Sign Out</a>
+<h1>Record Store</h1>
+<h2>Shopping Cart</h2>
+<div th:if="not ${cart.isEmpty()}">
+    <table width="300" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Price ($)</th>
+        </tr>
+        <tr th:each="c: ${cart}">
+            <td th:text="${c.key.name}"></td>
+            <td th:text="${c.key.artist}"></td>
+            <td th:text="${c.key.price}"></td>
+            <td>
+                <form method="post" action="/cart">
+                    <input type="number" name="amount" th:value="${c.value}" min = "1" max = "10">
+                    <input type="hidden" name="id" th:value="${c.key.idRecord}"/>
+                    <input type="Submit" name="quantity" value="Edit Quantity">
+                    <input type="Submit" name="delete" value="Delete">
+
+                </form>
+            </td>
+        </tr>
+    </table>
+    <h3>Total: $<span th:text="${totalPrice}"></span></h3>
+    <button><a href="/checkout">Checkout</a></button>
+</div>
+<div th:if="${cart.isEmpty()}">
+    <h3>Your shopping cart is empty</h3>
+</div>
+</body>
+</html>

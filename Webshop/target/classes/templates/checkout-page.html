@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+<h1>Record Store</h1>
+<h2>Your order has been placed</h2>
+<table width="300" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Artist</th>
+        <th>Price ($)</th>
+        <th>Quantity</th>
+    </tr>
+    <tr th:each="o: ${order}">
+        <td th:text="${o.record.name}"></td>
+        <td th:text="${o.record.artist}"></td>
+        <td th:text="${o.record.price}"></td>
+        <td th:text="${o.quantity}"></td>
+    </tr>
+</table>
+<h3>Total: $<span th:text="${totalPrice}"></span></h3>
+<button><a href="/">Sign Out</a></button>
+<button><a href="/home">Continue Shopping</a></button>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Sign In</title>
+</head>
+<body>
+<h1>Record Store</h1>
+<h3>Admin Sign In</h3>
+<form method="post" action="/validate-admin">
+    <input type="email" name="email" placeholder="Email"> <br/><br/>
+    <input type="password" name="password" placeholder="Password"><br/><br/>
+    <input type="Submit" value="Sign In">
+</form>
+<p><span th:text="${message}"></span></p>
+</body>
+</html>
