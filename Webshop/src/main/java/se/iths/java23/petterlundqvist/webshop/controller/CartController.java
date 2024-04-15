@@ -15,9 +15,6 @@ public class CartController {
     @Autowired
     CartService cartService;
 
-    @Autowired
-    RecordService recordService;
-
     @GetMapping("/cart")
     public String viewCart(Model m) {
         m.addAttribute("cart", cartService.getCart());
